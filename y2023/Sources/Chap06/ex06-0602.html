@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title> 추가된 입력 요소 예제 </title> 
+    <meta charset="utf-8"/>
+    <meta authors="임순범 박희민"> 
+    <meta copyright="본 예제는 [HTML5 웹프로그래밍 입문] 교재를 이용한 교육에만 사용할 수 있음">  
+</head>
+<body>
+    <form method="get" action="form_app.js"
+          oninput="out.value=price.valueAsNumber*num.valueAsNumber+'원'"> 
+        <h3>도서 구입 요청</h3>
+        도서명 : <input type="text" list="titles" name="book"/>
+        <datalist id="titles">
+            <option value="멀티미디어배움터" label="30,000"/>
+            <option value="인터넷배움터" label="34,000"/>
+            <option value="컴퓨터와 IT 기술의 이해" label="28,000"/>
+        </datalist>
+        <p>&nbsp; <p>&nbsp;
+        <p>금액 : <input type="number" name="price" size="8" min="0" step="100" value="0" /> 원 X   
+            <input type="number" name="num" size="5" step="1" min="0" value="0" /> 권 = 
+            <output name="out"/>
+        <p>&nbsp; <p>암호화 <keygen name="key"/> 
+        &nbsp;
+        <input type="submit" value="구입"/>
+    </form>
+</body>
+</html>
