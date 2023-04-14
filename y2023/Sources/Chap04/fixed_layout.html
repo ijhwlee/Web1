@@ -1,0 +1,35 @@
+<!doctype html>
+<html>  
+<head> 
+    <meta authors="임순범 박희민"> 
+    <meta charset="utf-8"/>
+    <meta copyright="본 예제는 [HTML5 웹프로그래밍 입문] 교재를 이용한 교육에만 사용할 수 있음">
+    <title>표의 레이아웃 지정(2)</title>
+    <style type="text/css">  
+	    #books caption { font-size: 14pt; font-weight: bold; margin: 0.5em }
+	    #books { table-layout: fixed; width: 90% }
+
+    </style>  
+</head>
+<body> 
+    <table border="1" id="books">
+        <caption>추천 도서 테이블</caption>    
+        <thead>
+            <tr>
+                <th>작가</th> <th>책제목</th> <th>출판사</th>
+            </tr>
+        </thead>   
+        <tbody>
+            <tr>
+                <td>월터아이작슨</td> <td>스티브잡스</td> <td>민음사</td>
+            </tr>
+            <tr>
+                <td>최윤철, 임순범</td> <td>멀티미디어 배움터</td> <td>생능출판사</td>
+            </tr>
+            <tr>
+                <td>임순범 외</td> <td>HTML5 웹 프로그래밍 입문</td> <td>생능출판사</td>
+            </tr>
+        </tbody> 
+    </table>
+</body>
+</html>
