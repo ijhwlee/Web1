@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 예제</title>
+    <script type="text/javascript">
+        function button_append() {
+            btn = document.createElement("button");
+            btn.innerText = document.getElementById("button_name").value;
+            btn.onclick = remove_self;
+            document.getElementById("button_area").appendChild(btn);
+        }
+        function delete_first() {
+            first_child = document.getElementById("button_area").firstChild;
+            console.log("[delete_first]first_child = "+first_child);
+            if(first_child) {
+                console.log("[delete_first]first_child = "+first_child.innerText);
+                document.getElementById("button_area").removeChild(first_child);
+            }
+        }
+        function remove_self(event) {
+            btn = event.target;
+            document.getElementById("button_area").removeChild(btn);
+        }
+    </script>
+</head>
+<body>
+    <h3>DOM 객체 생성 및 삭제 예제</h3>
+    생성된 버튼은 클릭 시 삭제 됩니다.<br>
+    <input id="button_name" type="text"><button onclick="button_append();">주어진 이름의 버튼생성</button>
+    <button onclick="delete_first();">첫 번째 버튼 삭제</button>
+    <div id="button_area" style="border: solid; height: 300px;"></div>
+</body>
+</html>
