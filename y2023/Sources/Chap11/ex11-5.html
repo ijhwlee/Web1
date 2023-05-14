@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta authors="임순범 박희민"/>
+<meta copyright="본 예제는 [HTML5 웹프로그래밍 입문] 교재를 이용한 교육에만 사용할 수 있음"/>
+<title> Position Change using Mouse Events </title>
+</head>
+<body onmousemove="move();" style="width:500px; height:500px;">
+    <img id="img1" src="image1.png" width="100px"
+        style="position: absolute; left: 50px; top: 120px;" />
+
+    <script type="text/javascript">
+        var stopped = true;
+        document.getElementById("img1").onclick = start_stop_move;
+
+        function start_stop_move() {
+            if (stopped) stopped = false;
+            else stopped = true;
+        }
+
+        function move() {
+            e = window.event;
+            mouse_x = e.clientX;
+            mouse_y = e.clientY;
+
+            document.getElementById("x").value = mouse_x;
+            document.getElementById("y").value = mouse_y;
+
+            if (!stopped) {
+                document.getElementById("img1").style.left = (mouse_x-50) + "px";
+                document.getElementById("img1").style.top = (mouse_y-50) + "px";
+            }
+        }
+    </script>
+
+    <form>
+        마우스로 이미지를 클릭하면 움직이기 시작합니다.<br>
+        다시 클릭하면 움직임이 멈춤니다.<br><br>
+        Mouse Position:
+        (X, Y)=(<input id="x"  size="3" type="text"/>,
+        <input id="y"  size="3" type="text"/>)
+    </form>
+</body>
+</html>
