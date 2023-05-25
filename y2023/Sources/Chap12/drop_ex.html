@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{display: flex;}
+        #folder {display: flex; width: 730px; height: 430px; border:1px solid lightgrey; border-radius: 10px;}
+        #nav { width: 200px; height: 430px; background-color:  rgb(235, 233, 229); border-radius: 10px 0px 0px 10px;}
+        #window{ width: 530px; height: 430px; background-color:  white; border-radius: 0px 10px 10px 0px;}
+        #buttons{display: flex; width: 100px; height: 50px; }
+        .button{width: 15px; height: 15px; border-radius: 50px; border:1px solid lightgrey; margin-top:15px; margin-left: 10px;}
+        #b1{background-color: red;}
+        #b2{background-color: orange}
+        #b3{background-color: green}
+        #title{ width: 530px; height: 50px; background-color:  rgb(255, 254, 249); border-bottom:1px solid lightgrey;border-radius: 0px 10px 0px 0px; text-align: center; line-height: 50px; font-size: 20px;}
+        #files{width: 200px; height:380px; line-height: 40px; overflow: auto;}
+        #droptarget{width: 530px; height: 380px; border-radius: 0px 0px 10px 0px;}
+        #dragsrc{display: block; margin: 20px; padding: 50px; height:200px; border-color:gray; border-style:solid;}
+    </style>
+    <title> 드롭 이벤트 예제 </title> 
+    <meta charset="utf-8"/>
+    <meta authors="임순범 박희민"> 
+    <meta copyright="본 예제는 [HTML5 웹프로그래밍 입문] 교재를 이용한 교육에만 사용할 수 있음">
+</head>
+<body>
+    <div id=folder>
+        <div id=nav>
+            <div id='buttons'>
+                <div class='button' id="b1"></div>
+                <div class='button' id="b2"></div>
+                <div class='button' id="b3"></div>
+            </div>
+            <div id='files'>
+                <ul id="filename"></ul>
+            </div>
+        </div>
+        <div id=window>
+            <div id='title'>Folder</div>
+            <div id='droptarget'></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var target = document.getElementById("droptarget");
+
+        target.ondragover = function(e){
+            e.preventDefault();   // 기존의 이벤트 발생 정지
+            e.target.style.background = 'lightgrey';
+        }
+        target.ondrop = function(e){
+            e.preventDefault();   // 기존의 이벤트 발생 정지
+            e.target.style.background = 'transparent';
+            var files = e.dataTransfer.files; // FileList object.
+            for(var i=0; i<files.length; i++){
+                document.getElementById('filename').innerHTML += '<li>' + files[i].name + '</li>';
+                target.innerHTML += "<img src='file.png' width='100px'>";
+            }
+        }
+    </script>
+</body>
+</html>

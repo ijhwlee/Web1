@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head> 
+    <title> 드래그 이벤트 예제 </title> 
+    <meta charset="utf-8"/>
+    <meta authors="임순범 박희민"> 
+    <meta copyright="본 예제는 [HTML5 웹프로그래밍 입문] 교재를 이용한 교육에만 사용할 수 있음">
+</head>
+<body>
+	<div id="src" style="display: block;">
+		<img id="html5" src="icon_html5.png" style="display: inline; width:150px;" draggable = "true">
+		<img id="css3" src="icon_css3.png" style="display: inline; width:150px;" draggable = "false">
+		<img id="js" src="icon_js.png" style="display: inline; width:150px;">
+	</div>
+	<div id="process"></div>
+
+    <script type="text/javascript">
+    var src = document.getElementById("src"),
+	    srcId,i=0;
+	    process = document.getElementById("process");
+
+    src.ondragstart = function(e){
+	    srcId = e.target.id;
+	    process.innerHTML = "start: "+srcId+"<br/>";  
+    }
+    src.ondrag = function(e){  
+		process.innerHTML = "start: "+srcId+"<br/>drag: "+srcId+" ["+(i++)+"]";  
+	}
+    src.ondragend = function(e){
+	    process.innerHTML += "<br/>end: "+srcId+"<br/>";
+    }
+    </script>
+</body>
+</html>
